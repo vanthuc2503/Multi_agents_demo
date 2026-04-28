@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat UI — Day12 Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="topbar">
+        <div class="title">
+          <div class="badge">Day12</div>
+          <div>
+            <h1>Chatbot Tester</h1>
+            <div class="sub">Dán key → chat như chatbot thật (OpenAI qua backend đã deploy).</div>
+          </div>
+        </div>
+        <div class="row gap">
+          <button id="btnHealth" class="btn">Health</button>
+          <button id="btnReady" class="btn">Ready</button>
+          <button id="btnSettings" class="btn ghost">Settings</button>
+        </div>
+      </header>
+
+      <section class="layout">
+        <aside id="settingsPanel" class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Settings</h2>
+              <div class="hint">Lưu local trong trình duyệt (localStorage).</div>
+            </div>
+            <button id="btnCloseSettings" class="btn ghost">Close</button>
+          </div>
+
+          <label class="field">
+            <span>Base URL</span>
+            <input id="baseUrl" placeholder="(blank = current domain)" />
+            <small>Nếu đang mở UI tại `<your-url>/ui` thì để trống.</small>
+          </label>
+
+          <label class="field">
+            <span>Backend API key (X-API-Key)</span>
+            <input id="apiKey" placeholder="AGENT_API_KEY" />
+            <small>Key bảo vệ backend (bắt buộc).</small>
+          </label>
+
+          <label class="field">
+            <span>OpenAI API key (X-OpenAI-Key)</span>
+            <input id="openaiKey" placeholder="sk-..." />
+            <small>Gửi lên backend cho mỗi request để gọi OpenAI. Không lưu ở server.</small>
+          </label>
+
+          <label class="field">
+            <span>user_id</span>
+            <input id="userId" value="test" />
+            <small>Dùng cho history / rate limit / budget theo user.</small>
+          </label>
+
+          <div class="row gap">
+            <button id="btnSave" class="btn primary">Save</button>
+            <button id="btnReset" class="btn">Reset</button>
+          </div>
+
+          <div class="divider"></div>
+          <div class="hint">
+            Tip: Nếu bạn không set `OPENAI_API_KEY` ở Railway, UI vẫn chat được nhờ `X-OpenAI-Key`.
+          </div>
+        </aside>
+
+        <section class="chat card">
+          <div id="chatLog" class="chatlog"></div>
+
+          <div class="composer">
+            <textarea id="question" rows="2" placeholder="Nhập tin nhắn... (Enter để gửi, Shift+Enter xuống dòng)"></textarea>
+            <button id="btnAsk" class="btn primary">Send</button>
+          </div>
+          <div class="statusbar">
+            <div id="statusLine" class="muted">Ready.</div>
+            <button id="btnClear" class="btn ghost small">Clear chat</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="card">
+        <div class="row space">
+          <h2>Raw JSON</h2>
+          <div class="muted">Debug request/response</div>
+        </div>
+        <pre id="output" class="output"></pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+

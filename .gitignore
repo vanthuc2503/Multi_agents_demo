@@ -1,0 +1,54 @@
+# --- Secrets / env files ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Packaging / builds
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.nox/
+.tox/
+
+# Type checker / IDE helpers
+.pyright/
+
+# --- Logs / runtime ---
+*.log
+logs/
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+
+# Cursor local project state (optional but usually desirable)
+.cursor/
+
+# --- Docker / local services ---
+*.pid
+dump.rdb
