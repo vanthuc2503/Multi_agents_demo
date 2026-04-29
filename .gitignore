@@ -52,3 +52,10 @@ Desktop.ini
 # --- Docker / local services ---
 *.pid
 dump.rdb
+aws-agent-deploy/terraform.tfvars
+aws-agent-deploy/.terraform/
+aws-agent-deploy/.terraform.lock.hcl
+aws-agent-deploy/terraform.tfstate
+aws-agent-deploy/terraform.tfstate.*
+pytest.ini
+terraform.tfstate
